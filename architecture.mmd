@@ -1,0 +1,8 @@
+flowchart TD
+ U[Student] --> UI[Streamlit UI]
+ UI --> M{Mode}
+ M -->|Study| P[Custom prompt + history] --> API[Optional LLM API] --> O[Response]
+ M -->|Document Q&A| D[Uploaded TXT/MD] --> C[Chunking] --> R[Lexical retrieval] --> G[Grounded excerpts] --> O
+ M -->|Tools| A[Agent router] --> T1[Safe calculator] --> O
+ A --> T2[Read-only knowledge search] --> O
+ O --> UI
